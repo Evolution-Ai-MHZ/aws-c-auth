@@ -1,39 +1,3 @@
-## AWS C Auth
-
-C99 library implementation of AWS client-side authentication: standard credentials providers and signing.
-
-From a cryptographic perspective, only functions with the suffix "_constant_time" should be considered constant
-time.
-
-## License
-
-This library is licensed under the Apache 2.0 License.
-
-## Usage
-
-### Building
-
-CMake 3.1+ is required to build.
-
-`<install-path>` must be an absolute path in the following instructions.
-
-#### Linux-Only Dependencies
-
-If you are building on Linux, you will need to build aws-lc and s2n-tls first.
-
-```
-git clone git@github.com:awslabs/aws-lc.git
-cmake -S aws-lc -B aws-lc/build -DCMAKE_INSTALL_PREFIX=<install-path>
-cmake --build aws-lc/build --target install
-
-git clone git@github.com:aws/s2n-tls.git
-cmake -S s2n-tls -B s2n-tls/build -DCMAKE_INSTALL_PREFIX=<install-path> -DCMAKE_PREFIX_PATH=<install-path>
-cmake --build s2n-tls/build --target install
-```
-
-#### Building aws-c-auth and Remaining Dependencies
-
-```
 git clone git@github.com:awslabs/aws-c-common.git
 cmake -S aws-c-common -B aws-c-common/build -DCMAKE_INSTALL_PREFIX=<install-path>
 cmake --build aws-c-common/build --target install
@@ -57,4 +21,3 @@ cmake --build aws-c-http/build --target install
 git clone git@github.com:awslabs/aws-c-auth.git
 cmake -S aws-c-auth -B aws-c-auth/build -DCMAKE_INSTALL_PREFIX=<install-path> -DCMAKE_PREFIX_PATH=<install-path>
 cmake --build aws-c-auth/build --target install
-```
